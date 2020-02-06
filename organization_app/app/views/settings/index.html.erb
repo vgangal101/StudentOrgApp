@@ -1,0 +1,90 @@
+<!-- built, modified and finished by Vardaan Gangal -->	
+	<h1 class="mb-3 font-weight-normal text-center"> Settings </h1>
+
+	
+	
+	<%= form_tag({controller:"settings",action:"update"}) do %>		
+
+	
+		<!-- each div block builds a part of the form that is the settings page the following one asks for the name -->	
+	<div class = "form-group row">
+			<div class="col-sm-4"></div>
+
+			<div class="col-sm-4">
+				<label class="control-label text-center col-form-label">First Name</label>
+				<%= text_field_tag("first", "", class: "form-control", value: @student.first) %>
+			</div>
+		</div>
+
+
+
+	<!-- build last name part of settings form  -->
+	<div class = "form-group row">
+			<div class="col-sm-4"></div>
+
+			<div class="col-sm-4">
+				<label class="control-label text-center col-form-label">Last Name</label>
+				<%= text_field_tag("last", "", class: "form-control", value: @student.last) %>
+
+			</div>
+		</div>
+
+
+	<!-- build dot-number part of form --> 
+	<div class = "form-group row">
+			<div class="col-sm-4"></div>
+
+			<div class="col-sm-4">
+				<label class="control-label text-center col-form-label">Dot Number</label>
+				<%= text_field_tag("dot_number", "", class: "form-control", value: @student.dot_number) %>
+
+			</div>
+		</div>
+
+
+	<!-- build Major part of form input page -->
+	<div class = "form-group row">
+			<div class="col-sm-4"></div>
+
+			<div class="col-sm-4">
+				<label class="control-label text-center col-form-label">Major</label>
+				<%= text_field_tag("major", "", class: "form-control", value: @student.major) %>
+
+			</div>
+		</div>
+
+	<!-- build the year input part of the input page --> 
+	<div class = "form-group row">
+			<div class="col-sm-4"></div>
+
+			<div class="col-sm-4">
+				<label class="control-label text-center col-form-label">Year</label>
+				<%= text_field_tag("year", "", class: "form-control", value: @student.year) %>
+
+					
+
+			</div>
+		</div>
+
+
+	<!-- build the email input  part of the form -->
+	<div class = "form-group row">
+			<div class="col-sm-4"></div>
+
+			<div class="col-sm-4">
+				<label class="control-label text-center col-form-label">Email</label>
+				<%= text_field_tag("email", "", class: "form-control", value: @student.email) %>
+	
+
+			
+			</div>
+		</div>
+	<!-- update button -->
+		<div class = "form-group row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<%= submit_tag("Update", class: "btn btn-primary btn-lg") %>	
+			</div>
+		</div>	
+		
+	<% end %>

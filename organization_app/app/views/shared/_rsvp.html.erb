@@ -1,0 +1,10 @@
+<div style="text-align:center;">Going?</div>
+<div class="btn-group-vertical btn-block">
+    <%= form_tag({ :controller => "attendances", :action => "rsvp" }) do %>
+        <% ["Yes","Maybe","No"].each do |opt| %>
+            <label class="btn btn-secondary active" style="margin-bottom: 0px;width:100%">
+                <%= radio_button_tag(:going, opt, false, :onclick => "this.parentNode.parentNode.submit();") %><%= opt %>
+            </label>
+        <% end %>
+    <% end %>
+</div>

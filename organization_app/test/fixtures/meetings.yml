@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  name: MyString
+  type: 
+  sponsor_company: MyString
+  blurb: MyString
+
+two:
+  date: MyString
+  name: MyString
+  type: 
+  sponsor_company: MyString
+  blurb: MyString

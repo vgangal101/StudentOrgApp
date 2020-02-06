@@ -1,0 +1,15 @@
+// Place all the styles related to the Meetings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline:none;
+}
+
+div .col-md-2 {
+  min-height:10vh;
+  display:flex;
+  align-items:center;
+}

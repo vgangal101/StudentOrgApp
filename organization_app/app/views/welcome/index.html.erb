@@ -1,0 +1,65 @@
+<h3> Upcoming Meeting </h3>
+<%= link_to(controller: "meetings", action: "show", id: @next_meeting) do %>
+<div class="card flex-row flex-wrap align-items-center justify-content-center">
+    <div class="col-md-2 align-items-center justify-content-center" style="padding:0 0 0 0;">
+        <%= image_tag(@next_meeting.image, width: "120px", class:"col d-flex align-items-center justify-content-center") %>
+    </div>
+    <div class="col-md-8">
+        <div class="card-block px-2">
+            <h5 class="card-title"><%= @next_meeting.name %></h4>
+                <p class="meeting-whenwhere"><b>When: </b><%= @next_meeting.date %></p>
+                <p class="meeting-whenwhere"><b>Where: </b><%= @next_meeting.where %></p>
+                <p class="card-text"><%= @next_meeting.blurb %></p>
+        </div>
+
+    </div>
+
+    <div class="col-md-2" style="margin-right:0;padding-right:0">
+        <%= render "shared/rsvp" %>
+    </div>
+</div>
+<% end %>
+<h3 style="margin-top:20px"> Last Meeting </h3>
+<%= link_to(controller: "meetings", action: "show", id: @last_meeting) do %>
+<div class="card flex-row flex-wrap align-items-center justify-content-center">
+    <div class="col-md-2 align-items-center justify-content-center" style="padding:0 0 0 0;">
+        <%= image_tag(@last_meeting.image, width: "120px", class:"col d-flex align-items-center justify-content-center") %>
+    </div>
+    <div class="col-md-8">
+        <div class="card-block px-2">
+            <h5 class="card-title"><%= @last_meeting.name %></h4>
+                <p class="meeting-whenwhere"><b>When: </b><%= @last_meeting.date %></p>
+                <p class="meeting-whenwhere"><b>Where: </b><%= @last_meeting.where %></p>
+                <p class="card-text"><%= @last_meeting.blurb %></p>
+        </div>
+
+    </div>
+
+    <div class="col-md-2" style="margin-right:0;padding-right:10px">
+        <%= render "shared/rating_stars" %>
+        
+        <div id="comments" style="text-align:center;">
+        <div> Feedback? </div>
+        <i class="fas fa-comment text-muted"></i>
+        <span  class="text-muted"><%= @num_comments %></span>
+    </div>
+    </div>
+</div>
+<% end %>
+
+<% content_for :scripts do %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.2/jquery.barrating.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('#attendance_rate').barrating({
+            theme: 'fontawesome-stars',
+            onSelect: function(value, text, event) {
+                $.post(
+                    url = '/attendances/rate',
+                    data = {'rating': value,
+                            'meeting_id': <%= @last_meeting.id %>
+                    }
+                );
+            }
+        });
+    </script>
+<% end %>
